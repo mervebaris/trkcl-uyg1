@@ -3,7 +3,7 @@ import React, {useState} from "react";
 function Colors() {
     const [colors, setColors] = useState(["Red", "Green", "Blue"]);
     const handleClick = () => {
-        setColors([...colors, "Orange"]);
+        setColors(prev => [...prev, "Orange"]);
     };
  
   return (

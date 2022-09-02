@@ -11,10 +11,10 @@ function User () {
         <br />
         <br />
         <div>
-          <button onClick={() => setUser({ ...user, name: "Volkan" })}>
+          <button onClick={() => setUser((prev) => ({ ...prev, name: "Volkan" }))}>
             İsmi Değiştir
           </button>
-          <button onClick={() => setUser({ ...user, surname: "Sitti" })}>
+          <button onClick={() => setUser((prev) => ({ ...prev, surname: "Sitti" }))}>
             Soyisim Değiştir
           </button>
         </div>
