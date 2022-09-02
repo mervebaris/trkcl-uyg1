@@ -1,9 +1,22 @@
 
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 function Counter() {
     const [count, setCount] = useState(0);
     const [amount, setAmount] = useState(1);
+
+
+    useEffect (() => {
+      console.log("Bir state değişti");
+    })
+
+     useEffect(() => {
+       console.log("Component mount edildi");
+     }, []);
+
+      useEffect(() => {
+        console.log("Count state değişti");
+      }, [count]);
 
 
   return (
