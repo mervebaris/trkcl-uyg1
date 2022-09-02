@@ -6,17 +6,22 @@ function Counter() {
     const [amount, setAmount] = useState(1);
 
 
-    useEffect (() => {
-      console.log("Bir state değişti");
-    })
+    //useEffect (() => {
+      //console.log("Bir state değişti");
+    //})
 
-     useEffect(() => {
-       console.log("Component mount edildi");
+     useEffect(() => { 
+
+     let interval = setInterval(() => {
+      console.log("interval");
+     setCount((prev) => prev + 1);
+     }, 1000)
+     return () => clearInterval(interval);
      }, []);
 
-      useEffect(() => {
-        console.log("Count state değişti");
-      }, [count]);
+     // useEffect(() => {
+     //   console.log("Count state değişti");
+     // }, [count]);
 
 
   return (
