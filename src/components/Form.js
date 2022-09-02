@@ -1,9 +1,12 @@
 import React, {useState} from "react";
 
 function Form() {
-  const [name, setName] = useState("");
-  const [surname, setSurName] = useState("");
-  const [gender, setGender] = useState("0");
+  const [form, setForm] = useState({ name: "", surname: "", gender: "0"});
+
+    const handleChange = (e) => {
+        setForm({...form,  [e.target.name]: e.target.value });
+    }
+
 
 
     return (
@@ -11,13 +14,16 @@ function Form() {
         <h2>Form</h2>
         <form>
           <input
-            onChange={(e) => setName(e.target.value)}
+            onChange={handleChange}
+            value={form.name}
+            name="name"
             type="text"
-            value={name}
             placeholder="Adınız"
           />
           <input
-            onChange={(e) => setSurName(e.target.value)}
+            onChange={handleChange}
+            value={form.surname}
+            name="surname"
             type="text"
             placeholder="Soyadınız"
           />
@@ -27,7 +33,7 @@ function Form() {
         <br />
         <div>
           <div>Cinsiyet</div>
-          <select value={gender} onChange={(e ) => setGender(e.target.value)}>
+          <select value={form.gender} onChange={handleChange} name="gender">
             <option value="0">Erkek</option>
             <option value="1">Kadın</option>
           </select>
@@ -35,13 +41,11 @@ function Form() {
         <hr />
         İsim:
         <strong>
-          {name} {surname}
+          {form.name} {form.surname}
         </strong>
         <br />
         Cinsiyet:
-        <strong>
-            {gender === "0" ? "Erkek" : "Kadın"}
-        </strong>
+        <strong>{form.gender === "0" ? "Erkek" : "Kadın"}</strong>
       </div>
     );
 
