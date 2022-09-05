@@ -18,7 +18,8 @@ function Users() {
   }, []); // componentDidMount
 
   const getData = async () => {
-    const { data: users } = await axios(
+   try{
+     const { data: users } = await axios(
       "https://jsonplaceholder.typicode.com/users"
     );
     const { data: posts } = await axios(
@@ -27,6 +28,9 @@ function Users() {
     setLoading(false);
     setUsers(users);
     setPosts(posts); 
+   }catch(err){
+     console.log(err);
+   }
   };
 
   return (
